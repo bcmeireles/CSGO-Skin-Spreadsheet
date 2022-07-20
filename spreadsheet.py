@@ -4,7 +4,7 @@ from openpyxl.drawing.image import Image
 import PIL
 import io
 import urllib3
-
+from openpyxl.styles import Font
 
 alp = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
@@ -18,6 +18,7 @@ def save_workbook(workbook, path):
 def write_cell_text(workbook, col, row, text):
     sheet = workbook.active
     sheet[col + row] = text
+    sheet[col + row].font = Font(color = "FFFFFF", bold=True)
 
 def write_cell_img(workbook, col, row, img_path):
     sheet = workbook.active

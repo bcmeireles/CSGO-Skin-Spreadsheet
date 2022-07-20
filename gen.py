@@ -42,9 +42,10 @@ for case in cases:
     print(case.split("/")[-1].replace("-", " "))
 
 
-for row in list.active[f"A1:{alp[list.active.max_column - 1]}{list.active.max_row}"]:
+for row in list.active[f"A1:{alp[list.active.max_column + 1]}{list.active.max_row}"]:
     for cell in row:
         cell.fill = PatternFill("solid", start_color="000000")
+        
 
 
 save_workbook(list, "collection.xlsx")
