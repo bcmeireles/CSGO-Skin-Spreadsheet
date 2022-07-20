@@ -49,7 +49,12 @@ def dumpCaseSkins(link):
 
     return skins
 
-for case in dumpCases()
-    print(case)
-    print(dumpCaseSkins(case))
-    print()
+def dumpCasePicture(link):
+    a = link.split("/")[-1]
+    p = requests.get(link)
+    xhtml = html.fromstring(p.content)
+    imageUrl = xhtml.xpath(f'//img[@alt="{a.replace("-", " ")}"]/@src')
+    return imageUrl[1]
+
+for case in dumpCases():
+    print(dumpCasePicture(case))
