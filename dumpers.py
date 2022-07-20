@@ -55,6 +55,3 @@ def dumpCasePicture(link):
     xhtml = html.fromstring(p.content)
     imageUrl = xhtml.xpath(f'//img[@alt="{a.replace("-", " ")}"]/@src')
     return imageUrl[1]
-
-for case in dumpCases():
-    print(dumpCasePicture(case))
